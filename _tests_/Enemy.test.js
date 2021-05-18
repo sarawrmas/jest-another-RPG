@@ -3,10 +3,10 @@ const Potion = require('../lib/Potion.js');
 jest.mock('../lib/Potion.js')
 
 test('creates an enemy object', () => {
-    // hard code enemy name to be Goblin and weapon to be sword
-    const enemy = new Enemy('Goblin', 'sword');
-    // check if enemy name and weapon is in fact Goblin and sword, respectively
-    expect(enemy.name).toBe('Goblin');
+    // hard code enemy name to be goblin and weapon to be sword
+    const enemy = new Enemy('goblin', 'sword');
+    // check if enemy name and weapon is in fact goblin and sword, respectively
+    expect(enemy.name).toBe('goblin');
     expect(enemy.weapon).toBe('sword');
     // check for properties with number values
     expect(enemy.health).toEqual(expect.any(Number));
@@ -16,13 +16,13 @@ test('creates an enemy object', () => {
 });
 
 test("gets enemy's health value", () => {
-    const enemy = new Enemy('Goblin', 'sword');
+    const enemy = new Enemy('goblin', 'sword');
     // get information about enemy's health and check that string contains enemy's health
     expect(enemy.getHealth()).toEqual(expect.stringContaining(enemy.health.toString()));
 });
 
 test('checks if enemy is alive or not', () => {
-    const enemy = new Enemy('Goblin', 'sword');
+    const enemy = new Enemy('goblin', 'sword');
     // check if enemy is alive (enemy alive = true)
     expect(enemy.isAlive()).toBeTruthy();
     // if enemy is dead, set enemy health equal to 0 before running next expect
@@ -32,7 +32,7 @@ test('checks if enemy is alive or not', () => {
 });
 
 test("gets enemy's attack value", () => {
-    const enemy = new Enemy('Goblin', 'sword');
+    const enemy = new Enemy('goblin', 'sword');
     // sets enemy strength equal to 10 because it is hard to test for randomness
     enemy.strength = 10;
     // checks for value between 5 and 15 because expected output is 10
@@ -41,7 +41,7 @@ test("gets enemy's attack value", () => {
 });
 
 test("subtracts from enemy's health", () => {
-    const enemy = new Enemy('Goblin', 'sword');
+    const enemy = new Enemy('goblin', 'sword');
     const oldHealth = enemy.health;
     // call reduceHealth() function to subtract 5 points from health
     enemy.reduceHealth(5);
@@ -52,7 +52,7 @@ test("subtracts from enemy's health", () => {
 });
 
 test('gets a description of the enemy', () => {
-    const enemy = new Enemy('Goblin', 'sword');
-    expect(enemy.getDescription()).toEqual(expect.stringContaining('Goblin'));
+    const enemy = new Enemy('goblin', 'sword');
+    expect(enemy.getDescription()).toEqual(expect.stringContaining('goblin'));
     expect(enemy.getDescription()).toEqual(expect.stringContaining('sword'));
 });
